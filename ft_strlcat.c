@@ -1,17 +1,15 @@
 unsigned long   ft_strlcat(char *dst, const char *src, int dstsize)
 {
-    unsigned long   i;
-    unsigned long   j;
-    unsigned long   iLenDst;
-    unsigned long   ds;
+    int i;
+    int j;
+    int iLenDst;
 
-    ds = (unsigned long)dstsize;
     i = 0;
-    while (dst[i] && dstsize != 0)
+    while (dst[i])
         i++;
     iLenDst = i;
     j = 0;
-    while (src[j] && i < ds - 1)
+    while (src[j] && i < dstsize - 1)
     {
         dst[i] = src[j];
         i++;
@@ -19,11 +17,9 @@ unsigned long   ft_strlcat(char *dst, const char *src, int dstsize)
     }
     while (src[j])
         j++;
-    if (ds > iLenDst)
-    {
+    if (dstsize > iLenDst)
         dst[i] = '\0';
-    }
     else
-        iLenDst = ds;
-    return (iLenDst + j);
+        iLenDst = dstsize;
+    return ((unsigned long)(iLenDst + j));
 }

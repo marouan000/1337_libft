@@ -8,15 +8,21 @@ NAME= libft.a
 all: $(NAME)
 	
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(BIN)
+	ar rcs $(NAME) $?
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BIN): $(NAME)
+	$(CC) main.c $(NAME) -o $(BIN)
+
+run: $(BIN)
+	@./$(BIN)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(BIN)
+	rm -f $(BIN) $(NAME)
 
 re: fclean all

@@ -24,6 +24,8 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
             }
             j++;
         }
+        if (needle[j])
+            in = 0;
         i++;
     }
     if (in)

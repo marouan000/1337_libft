@@ -20,6 +20,7 @@ char *ft_strtrim(char const *s1, char const *set)
     int start;
     int end;
     char    *arr;
+    int diff;
 
     i = 0;
     while (char_in(s1[i], set) && s1[i])
@@ -29,7 +30,10 @@ char *ft_strtrim(char const *s1, char const *set)
     while (char_in(s1[i], set) && i >= 0)
         i--;
     end = i;
-    arr = (char *)malloc(end - start + 2);
+    diff = end - start;
+    if (diff < 0)
+        diff = -2;
+    arr = (char *)malloc(diff + 2);
     if (!arr)
         return (NULL);
     i = 0;
