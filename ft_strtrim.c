@@ -22,17 +22,23 @@ char *ft_strtrim(char const *s1, char const *set)
     char    *arr;
     int diff;
 
+
     i = 0;
     while (char_in(s1[i], set) && s1[i])
         i++;
     start = i;
     i = ft_strlen(s1) - 1;
-    while (char_in(s1[i], set) && i >= 0)
-        i--;
+    if (i >= 0)
+    {
+        while (char_in(s1[i], set) && i >= 0)
+            i--;
+    }
     end = i;
     diff = end - start;
     if (diff < 0)
         diff = -2;
+    if (*s1 == '\0')
+        diff = -1;
     arr = (char *)malloc(diff + 2);
     if (!arr)
         return (NULL);
