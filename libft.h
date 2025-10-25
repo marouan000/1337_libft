@@ -5,6 +5,7 @@
 # include <stddef.h>   // preferred, defines NULL, size_t, etc.
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 
 int	ft_isalpha(int a);
 int ft_isdigit(int d);
