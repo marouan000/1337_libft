@@ -1,3 +1,5 @@
+#include "libft.h"
+
 CC= cc
 CFLAGS= -Wall -Wextra -Werror
 BIN= myprogram
